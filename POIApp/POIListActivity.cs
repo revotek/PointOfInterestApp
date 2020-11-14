@@ -32,6 +32,12 @@ namespace POIApp
             DownloadPoiListAsync();
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.POIListViewMenu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
         public async void DownloadPoiListAsync()
         {
             progressBar.Visibility = ViewStates.Visible;
