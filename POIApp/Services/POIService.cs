@@ -1,4 +1,6 @@
 ﻿
+using Android.Content;
+using Android.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -37,5 +39,11 @@ namespace POIApp.Services
                 return null;
             }
         }
+
+        public bool isConnected(Context activity){ 
+            var connManager = (ConnectivityManager)activity.GetSystemService(Context.ConnectivityService);
+            var activeConnection = connManager.ActiveNetworkInfo;
+            return (null != activeConnection && activeConnection.IsConnected);
+            }
     }
 }
